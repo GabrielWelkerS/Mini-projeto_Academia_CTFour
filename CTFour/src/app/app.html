@@ -1,0 +1,44 @@
+
+<h1>Academia Fit</h1>
+
+<h2>Meu treino</h2>
+
+<input
+  type="text"
+  placeholder="Digite um exercício"
+  [(ngModel)]="novoExercicio"
+>
+
+<button (click)="adicionar()">
+  Adicionar exercício
+</button>
+
+@for (exercicio of exercicios(); track exercicio) {
+  <div>
+    @if (exercicioEditando === exercicio) {
+      <input
+        type="text"
+        [(ngModel)]="novoNomeExercicio"
+        placeholder="Novo nome do exercício"
+      >
+
+      <button (click)="salvarEdicao()">
+        Salvar
+      </button>
+    } @else {
+      <span>🏋️ {{ exercicio }}</span>
+
+      <button (click)="iniciarEdicao(exercicio)">
+        Editar
+      </button>
+    }
+
+    <button (click)="remover(exercicio)">
+      Excluir
+    </button>
+  </div>
+}
+
+<hr>
+
+<app-treinos></app-treinos>

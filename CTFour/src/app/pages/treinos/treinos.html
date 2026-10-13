@@ -1,0 +1,12 @@
+<h2>Treinos disponíveis</h2>
+
+<div>
+  @for (exercicio of exercicios(); track exercicio) {
+    <p>
+      🏋️ {{ exercicio }}
+      <button (click)="remover(exercicio)">
+        Excluir
+      </button>
+    </p>
+  }
+</div>
